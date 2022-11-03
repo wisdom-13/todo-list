@@ -1,24 +1,33 @@
 import React, { useState } from 'react';
+import { useImmer } from 'use-immer';
+
 import Nav from './components/Nav/Nav';
 import TodoAdd from './components/TodoAdd/TodoAdd';
 import TodoList from './components/TodoList/TodoList';
 
 export default function App() {
 
-  const [todoList, setTodoList] = useState(
-    [
-      { id: 1, name: 'Reading', checked: false },
-      { id: 2, name: 'Running', checked: false },
-      { id: 3, name: 'Coding', checked: true },
-    ]
-  );
+  const [todoList, updateTodoList] = useImmer(todoListObj);
+
+  const handleCheck = (todo) => {
+
+    updateTodoList(() => { console.log(todoList[todo.id].name) })
+  }
 
 
   return (
     <>
       <Nav></Nav>
-      <TodoList todoList={todoList}></TodoList>
+      <TodoList todoList={todoList} handleCheck={handleCheck}></TodoList>
       <TodoAdd></TodoAdd>
     </>
   );
 }
+
+const todoListObj = (
+  [
+    { id: 0, name: 'Reading', checked: false },
+    { id: 1, name: 'Running', checked: false },
+    { id: 2, name: 'Coding', checked: true },
+  ]
+)
