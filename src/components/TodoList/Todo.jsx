@@ -1,13 +1,13 @@
 import React from 'react';
 
-export default function Todo({ todo, onCheck }) {
+export default function Todo({ todo, onCheck, onDelete }) {
 
   const handleCheck = () => {
     onCheck(todo);
   }
 
   const handleDelete = () => {
-    console.log("delete")
+    onDelete(todo);
   }
 
   return (

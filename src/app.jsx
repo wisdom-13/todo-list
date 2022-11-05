@@ -10,15 +10,22 @@ export default function App() {
   const [todoList, updateTodoList] = useImmer(todoListObj);
 
   const handleCheck = (todo) => {
+    updateTodoList((todoList) => {
+      todoList[todo.id].checked = !(todoList[todo.id].checked);
+    })
+  }
 
-    updateTodoList(() => { console.log(todoList[todo.id].name) })
+  const handleDelete = (todo) => {
+    updateTodoList((todoList) => {
+      todoList.splice(todo.id, 1)
+    })
   }
 
 
   return (
     <>
       <Nav></Nav>
-      <TodoList todoList={todoList} handleCheck={handleCheck}></TodoList>
+      <TodoList todoList={todoList} handleCheck={handleCheck} handleDelete={handleDelete}></TodoList>
       <TodoAdd></TodoAdd>
     </>
   );
