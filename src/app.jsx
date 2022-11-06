@@ -21,12 +21,17 @@ export default function App() {
     })
   }
 
+  const handleSubmit = (text) => {
+    updateTodoList((todoList) => {
+      todoList.push({ id: (todoList.length + 1), name: text, checked: false });
+    })
+  }
 
   return (
     <>
       <Nav></Nav>
       <TodoList todoList={todoList} handleCheck={handleCheck} handleDelete={handleDelete}></TodoList>
-      <TodoAdd></TodoAdd>
+      <TodoAdd onSubmit={handleSubmit} ></TodoAdd>
     </>
   );
 }
