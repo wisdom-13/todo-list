@@ -8,6 +8,7 @@ import TodoList from './components/TodoList/TodoList';
 export default function App() {
 
   const [todoList, updateTodoList] = useImmer(todoListObj);
+  const [filter, setfilter] = useState("1");
 
   const handleCheck = (todo) => {
     updateTodoList((todoList) => {
@@ -27,10 +28,14 @@ export default function App() {
     })
   }
 
+  const handleFilter = (filter) => {
+    setfilter(filter);
+  }
+
   return (
     <>
-      <Nav></Nav>
-      <TodoList todoList={todoList} handleCheck={handleCheck} handleDelete={handleDelete}></TodoList>
+      <Nav onFilter={handleFilter}></Nav>
+      <TodoList todoList={todoList} filter={filter} handleCheck={handleCheck} handleDelete={handleDelete}></TodoList>
       <TodoAdd onSubmit={handleSubmit} ></TodoAdd>
     </>
   );
