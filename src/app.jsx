@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useImmer } from 'use-immer';
+import './App.css';
 
 import Nav from './components/Nav/Nav';
 import TodoAdd from './components/TodoAdd/TodoAdd';
@@ -34,11 +35,13 @@ export default function App() {
   }
 
   return (
-    <DarkModeProvider>
-      <Nav onFilter={handleFilter}></Nav>
-      <TodoList todoList={todoList} filter={filter} handleCheck={handleCheck} handleDelete={handleDelete}></TodoList>
-      <TodoAdd onSubmit={handleSubmit} ></TodoAdd>
-    </DarkModeProvider>
+    <div className='todoList'>
+      <DarkModeProvider>
+        <Nav filter={filter} onFilter={handleFilter}></Nav>
+        <TodoList todoList={todoList} filter={filter} handleCheck={handleCheck} handleDelete={handleDelete}></TodoList>
+        <TodoAdd onSubmit={handleSubmit} ></TodoAdd>
+      </DarkModeProvider>
+    </div>
   );
 }
 

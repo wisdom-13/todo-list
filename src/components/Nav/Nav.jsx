@@ -2,8 +2,9 @@ import React from 'react';
 import { useContext } from 'react';
 import { DarkModeContext } from '../../context/DarkModeContext';
 import styles from './Nav.module.css'
+import { AiOutlineUnorderedList } from "react-icons/ai";
 
-export default function Nav({ onFilter }) {
+export default function Nav({ filter, onFilter }) {
 
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
 
@@ -16,14 +17,13 @@ export default function Nav({ onFilter }) {
   }
 
   return (
-    <>
-      <h1 className={styles.nav}>TODOLIST</h1>
+    <div class={styles.nav}>
       <ul>
-        <li onClick={() => { handleFilter("1") }}>전체</li>
-        <li onClick={() => { handleFilter("2") }}>완료</li>
-        <li onClick={() => { handleFilter("3") }}>미완료</li>
+        <li className={(filter == 1) ? styles.active : ""} onClick={() => { handleFilter("1") }}>전체</li>
+        <li className={(filter == 2) ? styles.active : ""} onClick={() => { handleFilter("2") }}>완료</li>
+        <li className={(filter == 3) ? styles.active : ""} onClick={() => { handleFilter("3") }}>미완료</li>
       </ul>
-      <button onClick={handleModeChange}>{(darkMode) ? "dark" : "white"}</button>
-    </>
+      {/* <button onClick={handleModeChange}>{(darkMode) ? "dark" : "white"}</button> */}
+    </div>
   );
 };

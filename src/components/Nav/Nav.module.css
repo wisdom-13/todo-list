@@ -1,3 +1,27 @@
-.nav {
-  background-color: coral;
+.nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav ul li {
+  display: block;
+  width: 100%;
+  line-height: 50px;
+  padding: 0 20px;
+  font-weight: 500;
+  color: #C6C6C6;
+  background-color: #FAFAFA;
+  box-shadow:
+    1px 0 0 0 #F2F2F2,
+    0 1px 0 0 #F2F2F2,
+    1px 1px 0 0 #F2F2F2,
+    1px 0 0 0 #F2F2F2 inset,
+    0 1px 0 0 #F2F2F2 inset;
+}
+
+.nav ul li.active {
+  background-color: #FFF;
+  border: none;
+  color: #5FC494;
 }
