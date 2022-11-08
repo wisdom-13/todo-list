@@ -4,6 +4,7 @@ import { useImmer } from 'use-immer';
 import Nav from './components/Nav/Nav';
 import TodoAdd from './components/TodoAdd/TodoAdd';
 import TodoList from './components/TodoList/TodoList';
+import { DarkModeProvider } from './context/DarkModeContext';
 
 export default function App() {
 
@@ -33,11 +34,11 @@ export default function App() {
   }
 
   return (
-    <>
+    <DarkModeProvider>
       <Nav onFilter={handleFilter}></Nav>
       <TodoList todoList={todoList} filter={filter} handleCheck={handleCheck} handleDelete={handleDelete}></TodoList>
       <TodoAdd onSubmit={handleSubmit} ></TodoAdd>
-    </>
+    </DarkModeProvider>
   );
 }
 

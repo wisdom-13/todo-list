@@ -1,10 +1,18 @@
 import React from 'react';
+import { useContext } from 'react';
+import { DarkModeContext } from '../../context/DarkModeContext';
 import styles from './Nav.module.css'
 
 export default function Nav({ onFilter }) {
 
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+
   const handleFilter = (filter) => {
     onFilter(filter);
+  }
+
+  const handleModeChange = () => {
+    toggleDarkMode();
   }
 
   return (
@@ -15,6 +23,7 @@ export default function Nav({ onFilter }) {
         <li onClick={() => { handleFilter("2") }}>완료</li>
         <li onClick={() => { handleFilter("3") }}>미완료</li>
       </ul>
+      <button onClick={handleModeChange}>{(darkMode) ? "dark" : "white"}</button>
     </>
   );
 };
