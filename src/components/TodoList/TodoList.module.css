@@ -1,3 +1,60 @@
 .list {
   text-align: left;
+  padding: 30px 40px;
+  color: #797979;
+  height: 250px;
+  overflow: scroll;
+}
+
+.todo {
+  line-height: 40px;
+}
+
+.checkbox {
+  display: none;
+  padding-left: 20px;
+}
+
+.checkboxLabel {
+  font-size: 1.2rem;
+  transition: 0.3s;
+
+  padding-left: 30px;
+  position: relative;
+}
+
+.checkbox:checked+.checkboxLabel {
+  color: #BEBEBC;
+  /* text-decoration: line-through; */
+  font-size: 1rem;
+}
+
+.checkbox:checked+.checkboxLabel:before {
+  color: #5FC494;
+
+}
+
+.checkboxLabel:before {
+  content: "⦁";
+  position: absolute;
+  left: -10px;
+  width: 20px;
+  text-align: center;
+  color: #D8DED9;
+}
+
+.deleteBtn {
+  float: right;
+  background: none;
+  border: none;
+  padding-top: 15px;
+}
+
+.deleteBtn svg {
+  color: #E1E1E1;
+  transition: 0.3s;
+}
+
+.deleteBtn svg:hover {
+  color: #EC7C68;
 }
