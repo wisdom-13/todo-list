@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import styles from './TodoAdd.module.css'
 
 export default function TodoAdd({ onSubmit }) {
 
@@ -6,15 +7,18 @@ export default function TodoAdd({ onSubmit }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(inputRef.current.value);
+    const text = inputRef.current.value;
+    if (text) {
+      onSubmit(text);
+    }
     inputRef.current.value = "";
   }
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input type="text" ref={inputRef} placeholder="할 일을 입력하세요."></input>
-        <button>추가</button>
+      <form className={styles.addForm} onSubmit={handleSubmit}>
+        <input className={styles.addInput} type="text" ref={inputRef} placeholder="할 일을 입력하세요."></input>
+        <button className={styles.addBtn}>추가</button>
       </form>
     </>
   );

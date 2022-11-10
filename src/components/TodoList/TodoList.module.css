@@ -31,7 +31,6 @@
 
 .checkbox:checked+.checkboxLabel:before {
   color: #5FC494;
-
 }
 
 .checkboxLabel:before {
