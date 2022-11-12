@@ -2,7 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { DarkModeContext } from '../../context/DarkModeContext';
 import styles from './Nav.module.css'
-import { AiOutlineUnorderedList } from "react-icons/ai";
+import { AiOutlineBulb } from "react-icons/ai";
 
 export default function Nav({ filter, onFilter }) {
 
@@ -23,7 +23,10 @@ export default function Nav({ filter, onFilter }) {
         <li className={(filter == 2) ? styles.active : ""} onClick={() => { handleFilter("2") }}>완료</li>
         <li className={(filter == 3) ? styles.active : ""} onClick={() => { handleFilter("3") }}>미완료</li>
       </ul>
-      {/* <button onClick={handleModeChange}>{(darkMode) ? "dark" : "white"}</button> */}
+      <button className={styles.modeChangeBtn} onClick={handleModeChange}>
+        {/* {(darkMode) ? "dark" : "white"} */}
+        <AiOutlineBulb size="25px"></AiOutlineBulb>
+      </button>
     </div>
   );
 };
