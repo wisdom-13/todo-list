@@ -20,10 +20,8 @@ export default function App() {
 
   const handleDelete = (todo) => {
     updateTodoList((todoList) => {
-      // todoList.splice(todo.id, 1)
-      todoList.filter(item => item.id == todo.id);
-    })
-    console.log(todoList)
+      return todoList.filter(item => item.id !== todo.id);
+    });
   }
 
   const handleSubmit = (text) => {
