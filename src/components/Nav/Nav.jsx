@@ -24,7 +24,6 @@ export default function Nav({ filter, onFilter }) {
         <li className={(filter == 3) ? styles.active : ""} onClick={() => { handleFilter("3") }}>미완료</li>
       </ul>
       <button className={styles.modeChangeBtn} onClick={handleModeChange}>
-        {(darkMode) ? "dark" : "white"}
         <AiOutlineBulb size="25px"></AiOutlineBulb>
       </button>
     </div>
