@@ -7,6 +7,8 @@ import TodoAdd from './components/TodoAdd/TodoAdd';
 import TodoList from './components/TodoList/TodoList';
 import { DarkModeProvider } from './context/DarkModeContext';
 
+import { v4 as uuidv4 } from 'uuid';
+
 export default function App() {
 
   const [todoList, updateTodoList] = useImmer(todoListObj);
@@ -26,8 +28,9 @@ export default function App() {
 
   const handleSubmit = (text) => {
     updateTodoList((todoList) => {
-      todoList.push({ id: (todoList.length), name: text, checked: false });
+      todoList.push({ id: uuidv4(), name: text, checked: false });
     })
+    console.log(todoList)
   }
 
   const handleFilter = (filter) => {
@@ -47,8 +50,8 @@ export default function App() {
 
 const todoListObj = (
   [
-    { id: 0, name: 'Reading', checked: false },
-    { id: 1, name: 'Running', checked: false },
-    { id: 2, name: 'Coding', checked: true },
+    { id: uuidv4(), name: 'Reading', checked: false },
+    { id: uuidv4(), name: 'Running', checked: false },
+    { id: uuidv4(), name: 'Coding', checked: true },
   ]
 )

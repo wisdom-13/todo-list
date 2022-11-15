@@ -4,12 +4,12 @@ import styles from './TodoAdd.module.css'
 
 export default function TodoAdd({ onSubmit }) {
 
-  const [text, setText] = useState();
+  const [text, setText] = useState("");
   const handleChange = (e) => { setText(e.target.value); }
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (text.trim) {
+    if (text.trim() !== "") {
       onSubmit(text);
     }
     setText("");
