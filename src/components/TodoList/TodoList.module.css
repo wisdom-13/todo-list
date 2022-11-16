@@ -1,4 +1,4 @@
-.list {
+/* .list {
   text-align: left;
   padding: 30px 40px;
   color: #797979;
@@ -25,7 +25,6 @@
 
 .checkbox:checked+.checkboxLabel {
   color: #BEBEBC;
-  /* text-decoration: line-through; */
   font-size: 1rem;
 }
 
@@ -56,4 +55,4 @@
 
 .deleteBtn svg:hover {
   color: #EC7C68;
-}
+} */

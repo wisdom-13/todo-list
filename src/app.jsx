@@ -9,14 +9,19 @@ import { DarkModeProvider } from './context/DarkModeContext';
 
 import { v4 as uuidv4 } from 'uuid';
 
+
 export default function App() {
 
   const [todoList, updateTodoList] = useImmer(todoListObj);
-  const [filter, setfilter] = useState("1");
+  const [filter, setfilter] = useState(filters[0]);
 
-  const handleCheck = (todo) => {
+  const handleCheck = (changeTodo) => {
     updateTodoList((todoList) => {
-      todoList[todo.id].checked = !(todoList[todo.id].checked);
+      // todoList[todo.id].status = (todoList[todo.id].status == 'active') ? 'completed' : 'active';
+      return todoList.map((todo) => (todo.id == changeTodo.todo) ? changeTodo : todo);
+      // todoList[todo.id] = todo;
+      // return todo;
+
     })
   }
 
@@ -30,17 +35,13 @@ export default function App() {
     updateTodoList((todoList) => {
       todoList.push({ id: uuidv4(), name: text, checked: false });
     })
-    console.log(todoList)
   }
 
-  const handleFilter = (filter) => {
-    setfilter(filter);
-  }
 
   return (
     <div className='todoList'>
       <DarkModeProvider>
-        <Nav filter={filter} onFilter={handleFilter}></Nav>
+        <Nav filter={filter} filters={filters} onFilterChange={setfilter}></Nav>
         <TodoList todoList={todoList} filter={filter} handleCheck={handleCheck} handleDelete={handleDelete}></TodoList>
         <TodoAdd onSubmit={handleSubmit} ></TodoAdd>
       </DarkModeProvider>
@@ -48,10 +49,12 @@ export default function App() {
   );
 }
 
+const filters = ['all', 'active', 'completed'];
+
 const todoListObj = (
   [
-    { id: uuidv4(), name: 'Reading', checked: false },
-    { id: uuidv4(), name: 'Running', checked: false },
-    { id: uuidv4(), name: 'Coding', checked: true },
+    { id: uuidv4(), name: 'Reading', status: 'active' },
+    { id: uuidv4(), name: 'Running', status: 'active' },
+    { id: uuidv4(), name: 'Coding', status: 'completed' },
   ]
 )

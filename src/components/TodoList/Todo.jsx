@@ -4,8 +4,8 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 
 export default function Todo({ todo, onCheck, onDelete }) {
 
-  const handleCheck = () => {
-    onCheck(todo);
+  const handleCheck = (e) => {
+    onCheck({ ...todo, name: 'tnwjdehls', status: e.target.checked ? 'completed' : 'active' });
   }
 
   const handleDelete = () => {
@@ -15,7 +15,13 @@ export default function Todo({ todo, onCheck, onDelete }) {
   return (
     <>
       <li className={styles.todo}>
-        <input id={todo.id} className={styles.checkbox} type="checkbox" onChange={handleCheck} checked={(todo.checked) ? "checked" : ""}></input>
+        <input
+          type="checkbox"
+          id={todo.id}
+          className={styles.checkbox}
+          onChange={handleCheck}
+          checked={(todo.completed) ? "checked" : ""}
+        />
         <label htmlFor={todo.id} className={styles.checkboxLabel}>{todo.name}</label>
         <button className={styles.deleteBtn} onClick={handleDelete}>
           <AiOutlineCloseCircle size="15px"></AiOutlineCloseCircle>
