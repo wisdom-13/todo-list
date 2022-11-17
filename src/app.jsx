@@ -16,18 +16,14 @@ export default function App() {
   const [filter, setfilter] = useState(filters[0]);
 
   const handleCheck = (changeTodo) => {
-    updateTodoList((todoList) => {
-      // todoList[todo.id].status = (todoList[todo.id].status == 'active') ? 'completed' : 'active';
-      return todoList.map((todo) => (todo.id == changeTodo.todo) ? changeTodo : todo);
-      // todoList[todo.id] = todo;
-      // return todo;
-
+    updateTodoList((todos) => {
+      return todos.map((todo) => (todo.id == changeTodo.id) ? changeTodo : todo);
     })
   }
 
   const handleDelete = (todo) => {
-    updateTodoList((todoList) => {
-      return todoList.filter(item => item.id !== todo.id);
+    updateTodoList((todos) => {
+      return todos.filter(item => item.id !== todo.id);
     });
   }
 
