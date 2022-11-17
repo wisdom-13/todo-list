@@ -1,7 +1,7 @@
 .list {
   text-align: left;
   padding: 30px 40px;
-  color: #797979;
+  color: var(--color-dark);
   height: 250px;
   overflow: scroll;
 }
@@ -24,12 +24,12 @@
 }
 
 .checkbox:checked+.checkboxLabel {
-  color: #BEBEBC;
+  color: var(--color-gray);
   font-size: 1rem;
 }
 
 .checkbox:checked+.checkboxLabel:before {
-  color: #5FC494;
+  color: var(--color-green);
 }
 
 .checkboxLabel:before {
@@ -38,7 +38,7 @@
   left: -10px;
   width: 20px;
   text-align: center;
-  color: #D8DED9;
+  color: var(--color-gray);
 }
 
 .deleteBtn {
@@ -49,10 +49,10 @@
 }
 
 .deleteBtn svg {
-  color: #E1E1E1;
+  color: var(--color-gray);
   transition: 0.3s;
 }
 
 .deleteBtn svg:hover {
-  color: #EC7C68;
+  color: var(--color-red);
 }

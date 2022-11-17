@@ -10,27 +10,27 @@
   line-height: 50px;
   padding: 0 20px;
   font-weight: 500;
-  color: #C6C6C6;
-  background-color: #FAFAFA;
+  color: var(--color-gray);
+  background-color: var(--color-gray-bg);
   box-shadow:
-    1px 0 0 0 #F2F2F2,
-    0 1px 0 0 #F2F2F2,
-    1px 1px 0 0 #F2F2F2,
-    1px 0 0 0 #F2F2F2 inset,
-    0 1px 0 0 #F2F2F2 inset;
+    1px 0 0 0 var(--color-line),
+    0 1px 0 0 var(--color-line),
+    1px 1px 0 0 var(--color-line),
+    1px 0 0 0 var(--color-line) inset,
+    0 1px 0 0 var(--color-line) inset;
 }
 
 .nav ul li.active {
-  background-color: #FFF;
+  background-color: var(--color-bg);
   border: none;
-  color: #5FC494;
+  color: var(--color-green);
 }
 
 .modeChangeBtn {
   position: absolute;
   /* left: -200px; */
   top: 0;
-  background: #FFF;
+  background: var(--color-bg);
   border: none;
 
 }

@@ -1,3 +1,16 @@
+:root {
+  --color-bg-dark: #191919;
+  --color-bg: #FFFFFF;
+  --color-gray-bg: #FAFAFA;
+  --color-line: #F2F2F2;
+  --color-green: #23C790;
+  --color-yellow: #F5C143;
+  --color-red: #EC7C68;
+  --color-dark: #797979;
+  --color-gray: #C6C6C6;
+  --color-white: #FFF;
+}
+
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 .notosanskr * {
@@ -27,7 +40,7 @@ code {
 }
 
 body {
-  background-color: #23C790;
+  background-color: var(--color-green);
   display: flex;
   justify-content: center;
   align-items: center;

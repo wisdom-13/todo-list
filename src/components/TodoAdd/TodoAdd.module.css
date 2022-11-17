@@ -7,9 +7,9 @@
   border: none;
   padding: 1rem;
   width: calc(100% - 120px);
-  border-top: 1px solid #F2F2F2;
-  color: #797979;
-  background: #FAFAFA;
+  border-top: 1px solid var(--color-line);
+  color: var(--color-dark);
+  background: var(--color-gray-bg);
 }
 
 .addInput:focus {
@@ -17,14 +17,14 @@
 }
 
 .addInput::placeholder {
-  color: #BEBEBC;
+  color: var(--color-gray);
 }
 
 .addBtn {
   background: none;
   border: none;
   width: 100px;
-  background: #F5C143;
-  color: #FFF;
+  background: var(--color-yellow);
+  color: var(--color-white);
   font-weight: 500;
 }
