@@ -1,20 +1,11 @@
 import React from 'react';
-import { useContext } from 'react';
-import { DarkModeContext } from '../../context/DarkModeContext';
+import { useDarkMode } from '../../context/DarkModeContext';
 import styles from './Nav.module.css'
-import { AiOutlineBulb } from "react-icons/ai";
+import { HiMoon, HiSun } from "react-icons/hi";
 
 export default function Nav({ filter, filters, onFilterChange }) {
 
-  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-
-  const handleFilter = (filter) => {
-    onFilterChange(filter);
-  }
-
-  const handleModeChange = () => {
-    toggleDarkMode();
-  }
+  const { darkMode, toggleDarkMode } = useDarkMode();
 
   return (
     <div className={styles.nav}>
@@ -29,8 +20,10 @@ export default function Nav({ filter, filters, onFilterChange }) {
           </li>
         ))}
       </ul>
-      <button className={styles.modeChangeBtn} onClick={handleModeChange}>
-        <AiOutlineBulb size="25px"></AiOutlineBulb>
+      <button className={styles.modeChangeBtn} onClick={toggleDarkMode}>
+        {!darkMode && <HiMoon />}
+        {darkMode && <HiSun />}
+
       </button>
     </div>
   );
