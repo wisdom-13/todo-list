@@ -8,11 +8,12 @@ import TodoList from './components/TodoList/TodoList';
 import { DarkModeProvider } from './context/DarkModeContext';
 
 import { v4 as uuidv4 } from 'uuid';
+import { useEffect } from 'react';
 
 
 export default function App() {
 
-  const [todoList, updateTodoList] = useImmer(todoListObj);
+  const [todoList, updateTodoList] = useImmer(() => todoListObj());
   const [filter, setfilter] = useState(filters[0]);
 
   const handleCheck = (changeTodo) => {
@@ -33,6 +34,10 @@ export default function App() {
     })
   }
 
+  useEffect(() => {
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+  }, [todoList])
+
 
   return (
     <div className='todoList'>
@@ -47,10 +52,7 @@ export default function App() {
 
 const filters = ['all', 'active', 'completed'];
 
-const todoListObj = (
-  [
-    { id: uuidv4(), name: 'Reading', status: 'active' },
-    { id: uuidv4(), name: 'Running', status: 'active' },
-    { id: uuidv4(), name: 'Coding', status: 'completed' },
-  ]
-)
+function todoListObj() {
+  const todo = localStorage.getItem('todoList');
+  return todo ? JSON.parse(todo) : [];
+}

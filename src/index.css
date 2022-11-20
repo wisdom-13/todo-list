@@ -1,5 +1,4 @@
 :root {
-  --color-bg-dark: #191919;
   --color-bg: #FFFFFF;
   --color-gray-bg: #FAFAFA;
   --color-line: #F2F2F2;
@@ -9,6 +8,15 @@
   --color-dark: #797979;
   --color-gray: #C6C6C6;
   --color-white: #FFF;
+}
+
+html.dark {
+  --color-bg: #171D26;
+  --color-gray-bg: #212838;
+  --color-line: #181E28;
+  --color-green: #643FEB;
+  --color-yellow: #D85888;
+  --color-red: #EC7C68;
 }
 
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
